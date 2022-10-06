@@ -10,19 +10,19 @@ fn main() {
             .read_line(&mut input)
             .expect("Failed to read line");
 
-        let index = match input.trim().parse::<i32>() {
+        let index = match input.trim().parse::<u64>() {
             Ok(num) => num,
-            Err(_) => 0-1,
+            Err(_) => 0,
         };
         let result = fibonacci(index);
         match result{
-        0.. => println!("The fibonacci of index {index} is {result}"),
+        1.. => println!("The fibonacci of index {index} is {result}"),
         _ => println!("Enter a valid Index"),
         }
     }
 }
 
-fn fibonacci(num: i32) -> i32 {
+fn fibonacci(num: u64) -> u64 {
     if num == 0 { 
         0 
     } else if num == 1 { 
@@ -30,7 +30,7 @@ fn fibonacci(num: i32) -> i32 {
     } else if num > 1 { 
         fibonacci(num-1) + fibonacci(num-2) 
     } else {
-        0-1
+        0
     }
 
 }
